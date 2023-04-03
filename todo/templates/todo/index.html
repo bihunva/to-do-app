@@ -1,10 +1,23 @@
 {% extends "todo/base.html" %}
 
 {% block content %}
+  <h1>TODO list</h1>
+  <br>
   {% for task in tasks %}
-    <p>{{ task.content }} {{ task.is_done|yesno:"Done,Not done" }}</p>
-    <p>{{ task.created_at|date:"F j, Y, g:i a" }}</p>
-    <p>
+    <h5>{{ task.content }}
+      {% if task.is_done %}
+        <span class="done">Done</span>
+      {% else %}
+        <span class="not-done">Not done</span>
+      {% endif %}
+    </h5>
+    <p class="created_at">
+      {{ task.created_at|date:"F j, Y, g:i a" }}
+      {% if task.deadline %}
+        <span class="deadline-line">Deadline: {{ task.deadline|date:"F j, Y, g:i a" }}</span>
+      {% endif %}
+    </p>
+    <p class="tag"> Tags:
       {% for tag in task.tags.all %}
         {{ tag.name }}
       {% endfor %}
