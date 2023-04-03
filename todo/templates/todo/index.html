@@ -1,15 +1,22 @@
 {% extends "todo/base.html" %}
 
 {% block content %}
-  <h1>TODO list</h1>
+  <h1>
+    TODO list
+    <a href="{% url 'todo:task-create' %}" class="btn btn-primary link-to-page">Create</a>
+  </h1>
   <br>
   {% for task in tasks %}
-    <h5>{{ task.content }}
+    <h5>
+      {{ task.content }}
       {% if task.is_done %}
         <span class="done">Done</span>
       {% else %}
         <span class="not-done">Not done</span>
       {% endif %}
+        <a href="{% url 'todo:task-undo-complete' pk=task.pk %}" class="btn btn-primary link-to-page">
+          {{ task.is_done|yesno:"Undo,Complete" }}
+        </a>
     </h5>
     <p class="created_at">
       {{ task.created_at|date:"F j, Y, g:i a" }}
@@ -21,6 +28,8 @@
       {% for tag in task.tags.all %}
         {{ tag.name }}
       {% endfor %}
+      <a href="{% url 'todo:task-update' pk=task.pk %}">Update</a>
+      <a href="{% url 'todo:task-delete' pk=task.pk %}">Delete</a>
     </p>
     <hr>
   {% endfor %}
