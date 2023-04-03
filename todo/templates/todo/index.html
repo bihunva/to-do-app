@@ -1,11 +1,14 @@
 {% extends "todo/base.html" %}
 
-{% for task in tasks %}
-  <p>{{ task.content }} {{ task.is_done|yesno:"Done,Not done" }}</p>
-  <p>{{ task.created_at }}</p>
-  <p>
-    {% for tag in task.tags %}
-      {{ tag.name }}
-    {% endfor %}
-  </p>
-{% endfor %}
+{% block content %}
+  {% for task in tasks %}
+    <p>{{ task.content }} {{ task.is_done|yesno:"Done,Not done" }}</p>
+    <p>{{ task.created_at|date:"F j, Y, g:i a" }}</p>
+    <p>
+      {% for tag in task.tags.all %}
+        {{ tag.name }}
+      {% endfor %}
+    </p>
+    <hr>
+  {% endfor %}
+{% endblock %}
