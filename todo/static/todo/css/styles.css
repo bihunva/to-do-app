@@ -1,0 +1,29 @@
+body {
+    max-width: 70%;
+    margin: 40px auto;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
+
+.tag {
+    color: grey;
+}
+
+.created_at {
+    font-size: 14px;
+}
+
+.deadline-line {
+    color: brown;
+}
+
+.done {
+    color: green;
+}
+
+.not-done {
+    color: red;
+}
