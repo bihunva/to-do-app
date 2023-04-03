@@ -14,7 +14,7 @@
       {% else %}
         <span class="not-done">Not done</span>
       {% endif %}
-        <a href="{% url 'todo:task-undo-complete' pk=task.pk %}" class="btn btn-primary link-to-page">
+        <a href="{% url 'todo:task-undo-complete' pk=task.pk %}" class="btn btn-secondary link-to-page">
           {{ task.is_done|yesno:"Undo,Complete" }}
         </a>
     </h5>
