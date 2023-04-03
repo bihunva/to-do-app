@@ -9,17 +9,15 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
         crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'todo/css/styles.css' %}">
-  <title>Title</title>
+  <title>Todo</title>
 </head>
 <body>
 <div class="container-fluid">
-
-
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       {% block sidebar %}{% include "todo/includes/sidebar.html" %}{% endblock %}
     </div>
-    <div class="col-sm-10 ">
+    <div class="col-sm-9 ">
       {% block content %}{% endblock %}
     </div>
   </div>

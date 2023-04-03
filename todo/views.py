@@ -59,4 +59,3 @@ def task_undo_complete_view(request, pk):
     task.save()
 
     return redirect("todo:index")
-
